@@ -1,0 +1,56 @@
+.header{
+    background-color: #04192E;
+    padding:1px;
+    color:white;
+    font-size:26px;
+
+}
+
+
+.margin{
+    margin-left: 2rem;
+}
+
+.panel{
+    border : 2px solid #343a40;
+    border-radius: 10px;
+    height: 40em;
+    padding:0em;
+}
+.form-control{
+    width:300px;
+    align-content: center;
+    text-align: center;
+    border:1px solid  white;
+    background-color: black;
+    color: white;
+    border-radius:5px;
+}
+
+a.btn-primary{
+    background-color: #343a40;
+    color:white;
+    margin-top: 10px;
+    width:10rem;
+    margin-bottom: 5rem
+}
+.house{
+    margin-top: 3em
+}
+.navbar-brand::first-letter{
+    color:tomato;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+.navbar-brand::first-line{
+    color:aqua;
+    font-size: 1.75rem;
+    text-align: center
+}
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
+
+

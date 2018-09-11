@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+       <button type="button" class="btn btn-outline-dark" (click)="goback()">Go Back</button>
+     </div>
+     
+     <div class="input-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+       <div class="input-group-prepend">
+             <label class="input-group-text" for="inputGroupSelect01">Regions</label>
+       </div>
+       <select [(ngModel)]="regionSelected" (ngModelChange)='regionSelect($event)' id="inputGroupSelect01" class="custom-select">
+         <option value="africa">Africa</option>
+         <option value="americas">Americas</option>
+         <option value="asia">Asia</option>
+         <option value="europe">Europe</option>
+         <option value="oceania">Oceania</option>
+       </select>
+     </div>
+ 
+     <div class="row" id="contentCards" style="text-align:center">
+       <div *ngFor="let country of allCountries" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+           <div class="card border border-dark mb-3">
+             <img class="card-img-top" [src]="country.flag" alt="Card image cap">
+             <div class="card-body ">
+               <h5 class="card-title">{{country.name}}</h5>
+               <div class="card-text">
+                 <p>Capital : {{country.capital}}</p>
+                 <p>Currency : 
+                   <span *ngFor="let currency of country.currencies; let i = last">
+                   <a [routerLink]="['/all-countries/' + country.region]" [queryParams]="{ 'currency' : currency.code, 'name' : currency.name}">{{currency.name}} </a>{{i ? "" : ","}} </span>
+                 </p>
+                 <p>Languages :
+                   <span *ngFor="let language of country.languages; let i = last">
+                   <a [routerLink]="['/all-countries/' + country.region]" [queryParams]="{ 'language' : language.iso639_1, 'name' : language.name}">{{language.name}} </a>{{i ? "" : ","}} </span>
+                 </p>
+               </div>
+               <p>
+                 <button [routerLink]="['/country-view', country.name]" class="btn btn-dark btn-block">Details</button>
+               </p>
+             </div>
+           </div>
+         </div>
+     </div>
+ </div>

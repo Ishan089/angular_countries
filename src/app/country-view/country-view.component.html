@@ -1,0 +1,124 @@
+<div *ngIf="countryInfo">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <button class="btn btn-outline-dark" (click)="goback()">Go back</button>
+  </div>
+  <div class="container">
+    <div class="row bg-faded">
+      <div class="col-8 mx-auto text-center">
+
+        <img class="img-fluid border border-dark" [src]="countryInfo[0].flag" alt="Fir" slidestyle="height: 30rem;">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <Details class=""></Details>
+      </a>
+
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="row">
+          <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card border-dark mb-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngIf="countryInfo[0].name">
+                  <h6>Country: {{countryInfo[0].name}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].capital">
+                  <h6>Capital: {{countryInfo[0].capital}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].currencies">
+                  <h6>Currencies:
+                    <span *ngFor="let currency of countryInfo[0].currencies; let i = last">
+                      <a [routerLink]="['/all-countries/' + countryInfo[0].region]" [queryParams]="{ 'currency' : currency.code, 'name' : currency.name}">{{currency.name}} </a>{{i ? "" : ","}} </span>
+                    <br>
+                  </h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].languages">
+                  <h6>Languages:
+                    <span *ngFor="let language of countryInfo[0].languages; let i = last">
+                      <a [routerLink]="['/all-countries/' + countryInfo[0].region]" [queryParams]="{ 'language' : language.iso639_1, 'name' : language.name}">{{language.name}} </a>{{i ? "" : ","}} </span>
+                    <br>
+                  </h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].population">
+                  <h6>Population: {{countryInfo[0].population}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].area">
+                  <h6>Area: {{countryInfo[0].area}}</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card border-dark mb-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngIf="countryInfo[0].region">
+                  <h6>Region: {{countryInfo[0].region}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].subregion">
+                  <h6>Sub Region: {{countryInfo[0].subregion}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].timezones">
+                  <h6>Time zones:
+                    <span *ngFor="let time of countryInfo[0].timezones; let i = last">{{time}}{{i ? "" : ","}}</span>
+                    <br>
+                  </h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].borders">
+                  <h6>Borders:
+                    <span *ngFor="let border of countryInfo[0].borders; let i = last">{{border}}{{i ? "" : ","}}</span>
+                    <br>
+                  </h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].latlng[0]">
+                  <h6>Latitude: {{countryInfo[0].latlng[0]}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].latlng[1]">
+                  <h6>Longitude: {{countryInfo[0].latlng[1]}}</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card border-dark mb-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngIf="countryInfo[0].nativeName">
+                  <h6>Native Name: {{countryInfo[0].nativeName}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].demonym">
+                  <h6>Demonyn: {{countryInfo[0].demonym}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].callingCodes">
+                  <h6>Calling codes:
+                    <span *ngFor="let code of countryInfo[0].callingCodes; let i = last">{{code}}{{i ? "" : ","}}</span>
+                    <br>
+                  </h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].topLevelDomain">
+                  <h6>Top level domain: {{countryInfo[0].topLevelDomain}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].alpha2Code">
+                  <h6>alpha2Code: {{countryInfo[0].alpha2Code}}</h6>
+                </li>
+                <li class="list-group-item" *ngIf="countryInfo[0].alpha3Code">
+                  <h6>alpha3Code: {{countryInfo[0].alpha3Code}}</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
